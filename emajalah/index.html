@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>eMajalah SKPK Miri</title>
     <meta name="description" content="Portal rasmi eMajalah SK Pendidikan Khas Miri.">
-    <!-- Ikon pada tab browser (fallback jika tiada fail tempatan) -->
-    <link rel="icon" type="image/png" href="https://ui-avatars.com/api/?name=SK&background=4f46e5&color=fff">
+    <!-- Ikon pada tab browser menggunakan logo SKPK Miri -->
+    <link rel="icon" type="image/png" href="https://drive.google.com/uc?export=view&id=1GYxjT5DpYhnzrgEneQ-RyCX-I9dstSHs">
     
     <!-- Tailwind CSS untuk reka bentuk -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -38,17 +38,18 @@
                 
                 <p class="text-slate-600 mb-8 leading-relaxed font-medium">
                     JEMPUT KE WEBSITE eBuletin bulanan SKPK Miri 2026<br/>
-                    <span class="text-sm italic text-slate-400 block mt-2">(Pautan akan diberikan nanti)</span>
+                    <span class="text-sm italic text-slate-400 block mt-2">(Pautan akan dikemas kini kelak)</span>
                 </p>
 
                 <div class="flex flex-col gap-3">
+                    <!-- Pautan ini akan scroll ke bahagian eBuletin dan menutup popup -->
                     <a
-                        href="#"
-                        onclick="alertBuletin(event)"
+                        href="#ebuletin"
+                        onclick="closePopup()"
                         class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-xl transition-colors duration-300 shadow-md flex items-center justify-center gap-2"
                     >
-                        Layari eBuletin
-                        <i class="fa-solid fa-arrow-up-right-from-square text-lg"></i>
+                        Pergi ke Ruangan eBuletin
+                        <i class="fa-solid fa-arrow-down text-lg"></i>
                     </a>
                 </div>
             </div>
@@ -59,8 +60,8 @@
     <header class="bg-indigo-700 text-white sticky top-0 z-50 shadow-lg">
         <div class="container mx-auto px-4 py-4 md:py-6 flex flex-col md:flex-row items-center justify-between gap-4">
             <div class="flex items-center gap-3">
-                <div class="bg-white p-2 rounded-full shadow-sm flex items-center justify-center w-12 h-12">
-                    <i class="fa-solid fa-school-flag text-indigo-700 text-2xl"></i>
+                <div class="bg-white p-1 rounded-full shadow-sm flex items-center justify-center w-12 h-12 md:w-14 md:h-14">
+                    <img src="https://drive.google.com/uc?export=view&id=1GYxjT5DpYhnzrgEneQ-RyCX-I9dstSHs" alt="Logo SKPK Miri" class="w-10 h-10 md:w-12 md:h-12 object-contain" />
                 </div>
                 <div>
                     <h1 class="text-2xl md:text-3xl font-bold tracking-tight">eMajalah SKPK Miri</h1>
@@ -69,6 +70,7 @@
             </div>
             <div class="hidden md:flex items-center gap-6 text-sm font-medium">
                 <a href="#koleksi" class="hover:text-indigo-200 transition-colors"><i class="fa-solid fa-layer-group mr-1"></i> Koleksi Terkini</a>
+                <a href="#ebuletin" class="hover:text-indigo-200 transition-colors"><i class="fa-regular fa-newspaper mr-1"></i> eBuletin Bulanan</a>
                 <a href="#tentang" class="hover:text-indigo-200 transition-colors"><i class="fa-solid fa-users-viewfinder mr-1"></i> Sidang Redaksi</a>
             </div>
         </div>
@@ -97,20 +99,18 @@
         </div>
     </section>
 
-    <!-- Main Content - Thumbnails Grid -->
-    <main id="koleksi" class="container mx-auto px-4 py-16 md:py-24">
+    <!-- Main Content - Thumbnails Grid (eMajalah) -->
+    <main id="koleksi" class="container mx-auto px-4 pt-16 md:pt-24 pb-10">
         <div class="text-center mb-16">
             <h3 class="text-3xl font-bold text-slate-800 mb-3"><i class="fa-solid fa-book-journal-whills text-indigo-500 mr-2"></i>Koleksi Edisi Majalah</h3>
             <div class="w-24 h-1 bg-indigo-600 mx-auto rounded-full mb-4"></div>
             <p class="text-slate-600 max-w-2xl mx-auto">Pilih tahun edisi di bawah untuk mula membaca. Majalah akan dibuka dalam tetingkap baru menggunakan platform Canva.</p>
         </div>
 
-        <!-- max-w-5xl digunakan untuk mengecilkan sedikit keseluruhan saiz grid -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 max-w-5xl mx-auto">
             
             <!-- MAJALAH 2025 -->
             <div class="group bg-white rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col overflow-hidden border border-slate-200">
-                <!-- Tambah padding di dalam kad untuk kecilkan saiz thumbnail -->
                 <div class="p-5 md:p-6 pb-0 relative">
                     <div class="relative aspect-[3/4] overflow-hidden rounded-xl shadow-md bg-slate-200">
                         <div class="absolute top-3 right-3 z-20 bg-amber-500 text-white text-[10px] font-black px-3 py-1.5 rounded-full shadow-md tracking-wider flex items-center gap-1">
@@ -265,12 +265,32 @@
         </div>
     </main>
 
+    <!-- Seksyen eBuletin Bulanan -->
+    <section id="ebuletin" class="container mx-auto px-4 py-16 md:py-24 border-t border-slate-200">
+        <div class="text-center mb-16">
+            <h3 class="text-3xl font-bold text-slate-800 mb-3"><i class="fa-regular fa-newspaper text-indigo-500 mr-2"></i>eBuletin Bulanan</h3>
+            <div class="w-24 h-1 bg-indigo-600 mx-auto rounded-full mb-4"></div>
+            <p class="text-slate-600 max-w-2xl mx-auto">Nantikan perkongsian aktiviti dan berita terkini SK Pendidikan Khas Miri melalui eBuletin bulanan kami yang akan disiarkan di sini.</p>
+        </div>
+
+        <div class="flex justify-center">
+            <!-- Kad 'Akan Datang' Sementara -->
+            <div class="bg-white rounded-3xl shadow-sm border border-slate-200 p-8 md:p-12 text-center max-w-2xl w-full">
+                <div class="w-20 h-20 bg-indigo-50 text-indigo-400 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="fa-regular fa-clock text-4xl"></i>
+                </div>
+                <h4 class="text-2xl font-bold text-slate-800 mb-3">Edisi 2026 Akan Datang</h4>
+                <p class="text-slate-500">Sidang Redaksi sedang giat menyusun dan menyediakan edisi eBuletin yang pertama. Pautan bacaan akan dikemaskini di ruangan ini tidak lama lagi.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer Section -->
     <footer id="tentang" class="bg-slate-900 text-slate-300 py-12 border-t border-slate-800">
         <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
             <div class="flex items-center justify-center md:justify-start gap-4 mb-4 md:mb-0">
-                <div class="bg-white p-1.5 rounded-full flex items-center justify-center w-12 h-12">
-                    <i class="fa-solid fa-school-flag text-indigo-900 text-xl"></i>
+                <div class="bg-white p-1 rounded-full flex items-center justify-center w-12 h-12">
+                    <img src="https://drive.google.com/uc?export=view&id=1GYxjT5DpYhnzrgEneQ-RyCX-I9dstSHs" alt="Logo SKPK Miri" class="w-10 h-10 object-contain" />
                 </div>
                 <div>
                     <p class="font-bold text-white text-lg">SK Pendidikan Khas Miri</p>
@@ -297,12 +317,6 @@
             setTimeout(() => {
                 popup.style.display = 'none';
             }, 300);
-        }
-
-        // Fungsi sementara untuk butang eBuletin
-        function alertBuletin(e) {
-            e.preventDefault();
-            alert('Pautan eBuletin akan dikemaskini kelak oleh admin!');
         }
     </script>
 </body>
