@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ms" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eMajalah SKPK Miri</title>
+    <meta name="description" content="Portal rasmi eMajalah SK Pendidikan Khas Miri.">
+    <!-- Ikon pada tab browser -->
+    <link rel="icon" type="image/png" href="logo.png">
+    
+    <!-- Tailwind CSS untuk reka bentuk -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-50 font-sans selection:bg-indigo-100 selection:text-indigo-900">
+
+    <!-- Popup Announcement -->
+    <div id="announcementPopup" class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm transition-opacity duration-300">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full relative overflow-hidden transform transition-all duration-300 scale-100 opacity-100">
+            
+            <!-- Close Button (X) -->
+            <button
+                onclick="closePopup()"
+                class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 hover:bg-slate-100 rounded-full p-2 transition-colors z-10"
+                aria-label="Tutup popup"
+            >
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+
+            <div class="p-8 text-center">
+                <div class="w-16 h-16 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center mx-auto mb-5 shadow-inner">
+                    <i class="fa-solid fa-bullhorn text-3xl"></i>
+                </div>
+                
+                <h3 class="text-2xl font-bold text-slate-800 mb-3">Pengumuman!</h3>
+                
+                <p class="text-slate-600 mb-8 leading-relaxed font-medium">
+                    JEMPUT KE WEBSITE eBuletin bulanan SKPK Miri 2026<br/>
+                    <span class="text-sm italic text-slate-400 block mt-2">(Pautan akan diberikan nanti)</span>
+                </p>
+
+                <div class="flex flex-col gap-3">
+                    <a
+                        href="#"
+                        onclick="alertBuletin(event)"
+                        class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-xl transition-colors duration-300 shadow-md flex items-center justify-center gap-2"
+                    >
+                        Layari eBuletin
+                        <i class="fa-solid fa-arrow-up-right-from-square text-lg"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header Section -->
+    <header class="bg-indigo-700 text-white sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-4 py-4 md:py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <div class="bg-white p-1 rounded-full shadow-sm">
+                    <!-- Gunakan logo.png -->
+                    <img src="logo.png" alt="Logo SKPK Miri" class="w-10 h-10 md:w-12 md:h-12 object-contain" onerror="this.onerror=null; this.src='https://via.placeholder.com/150?text=SKPK';" />
+                </div>
+                <div>
+                    <h1 class="text-2xl md:text-3xl font-bold tracking-tight">eMajalah SKPK Miri</h1>
+                    <p class="text-indigo-200 text-sm md:text-base font-medium">SK Pendidikan Khas Miri, Sarawak</p>
+                </div>
+            </div>
+            <div class="hidden md:flex items-center gap-6 text-sm font-medium">
+                <a href="#koleksi" class="hover:text-indigo-200 transition-colors">Koleksi Terkini</a>
+                <a href="#tentang" class="hover:text-indigo-200 transition-colors">Sidang Redaksi</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Banner Section -->
+    <section class="bg-gradient-to-b from-indigo-800 to-indigo-600 text-white py-16 md:py-24 relative overflow-hidden">
+        <!-- Decorative background elements -->
+        <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+            <div class="absolute top-10 left-10 transform -rotate-12">
+                <i class="fa-solid fa-graduation-cap text-9xl"></i>
+            </div>
+            <div class="absolute bottom-10 right-10 transform rotate-12">
+                <i class="fa-solid fa-book-open text-[150px]"></i>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10 text-center max-w-3xl">
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
+                Memori Indah, Kini Di Hujung Jari Anda.
+            </h2>
+            <p class="text-lg md:text-xl text-indigo-100 mb-10 leading-relaxed">
+                Selamat datang ke portal rasmi eMajalah SK Pendidikan Khas Miri. 
+                Terokai himpunan kenangan, pencapaian, dan aktiviti warga sekolah bermula dari tahun 2023 hingga kini.
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content - Thumbnails Grid -->
+    <main id="koleksi" class="container mx-auto px-4 py-16 md:py-24">
+        <div class="text-center mb-16">
+            <h3 class="text-3xl font-bold text-slate-800 mb-3">Koleksi Edisi Majalah</h3>
+            <div class="w-24 h-1 bg-indigo-600 mx-auto rounded-full mb-4"></div>
+            <p class="text-slate-600 max-w-2xl mx-auto">Pilih tahun edisi di bawah untuk mula membaca. Majalah akan dibuka dalam tetingkap baru menggunakan platform Canva.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 max-w-6xl mx-auto">
+            
+            <!-- MAJALAH 2025 -->
+            <div class="group bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col overflow-hidden border border-slate-100">
+                <div class="relative aspect-[3/4] overflow-hidden bg-slate-200">
+                    <div class="absolute top-4 right-4 z-20 bg-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                        EDISI TERKINI
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-tr from-indigo-300 to-purple-300 opacity-50"></div>
+                    <img 
+                        src="MAJALAH 2025.jpg" 
+                        alt="Muka Depan Majalah Tahun 2025" 
+                        class="object-cover w-full h-full relative z-10 transition-transform duration-700 group-hover:scale-110"
+                        onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&q=80&w=600&h=800';"
+                    />
+                    <div class="absolute inset-0 z-20 bg-indigo-900 bg-opacity-0 group-hover:bg-opacity-60 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                        <a 
+                            href="https://canva.link/majalahskpkmiri2025" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            class="transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 bg-white text-indigo-700 hover:bg-indigo-50 px-6 py-3 rounded-full font-bold shadow-xl flex items-center gap-2"
+                        >
+                            <i class="fa-solid fa-book-open text-xl"></i> Buka E-Majalah
+                        </a>
+                    </div>
+                </div>
+                <div class="p-6 flex-grow flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm font-bold text-indigo-600 uppercase tracking-wider">Edisi 2025</span>
+                            <span class="text-xs text-slate-400 flex items-center gap-1">
+                               <i class="fa-solid fa-users"></i> 2025
+                            </span>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-800 leading-tight mb-2 group-hover:text-indigo-600 transition-colors">
+                            Lantera Edisi Ke-3
+                        </h4>
+                        <p class="text-sm text-slate-500 line-clamp-2">
+                            Koleksi kenangan, aktiviti kurikulum, kokurikulum dan pencapaian warga SKPK Miri sepanjang tahun 2025.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-100">
+                        <a 
+                            href="https://canva.link/majalahskpkmiri2025" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            class="w-full flex items-center justify-center gap-2 bg-indigo-50 hover:bg-indigo-600 text-indigo-700 hover:text-white py-3 px-4 rounded-xl font-semibold transition-colors duration-300"
+                        >
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Baca di Canva
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MAJALAH 2024 -->
+            <div class="group bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col overflow-hidden border border-slate-100">
+                <div class="relative aspect-[3/4] overflow-hidden bg-slate-200">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-indigo-300 to-purple-300 opacity-50"></div>
+                    <img 
+                        src="MAJALAH 2024.jpg" 
+                        alt="Muka Depan Majalah Tahun 2024" 
+                        class="object-cover w-full h-full relative z-10 transition-transform duration-700 group-hover:scale-110"
+                        onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&q=80&w=600&h=800';"
+                    />
+                    <div class="absolute inset-0 z-20 bg-indigo-900 bg-opacity-0 group-hover:bg-opacity-60 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                        <a 
+                            href="https://canva.link/majalahskpkmiri2024" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            class="transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 bg-white text-indigo-700 hover:bg-indigo-50 px-6 py-3 rounded-full font-bold shadow-xl flex items-center gap-2"
+                        >
+                            <i class="fa-solid fa-book-open text-xl"></i> Buka E-Majalah
+                        </a>
+                    </div>
+                </div>
+                <div class="p-6 flex-grow flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm font-bold text-indigo-600 uppercase tracking-wider">Edisi 2024</span>
+                            <span class="text-xs text-slate-400 flex items-center gap-1">
+                               <i class="fa-solid fa-users"></i> 2024
+                            </span>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-800 leading-tight mb-2 group-hover:text-indigo-600 transition-colors">
+                            Lantera Edisi Ke-2
+                        </h4>
+                        <p class="text-sm text-slate-500 line-clamp-2">
+                            Koleksi kenangan, aktiviti kurikulum, kokurikulum dan pencapaian warga SKPK Miri sepanjang tahun 2024.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-100">
+                        <a 
+                            href="https://canva.link/majalahskpkmiri2024" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            class="w-full flex items-center justify-center gap-2 bg-indigo-50 hover:bg-indigo-600 text-indigo-700 hover:text-white py-3 px-4 rounded-xl font-semibold transition-colors duration-300"
+                        >
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Baca di Canva
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MAJALAH 2023 -->
+            <div class="group bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col overflow-hidden border border-slate-100">
+                <div class="relative aspect-[3/4] overflow-hidden bg-slate-200">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-indigo-300 to-purple-300 opacity-50"></div>
+                    <img 
+                        src="2023.jpg" 
+                        alt="Muka Depan Majalah Tahun 2023" 
+                        class="object-cover w-full h-full relative z-10 transition-transform duration-700 group-hover:scale-110"
+                        onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&q=80&w=600&h=800';"
+                    />
+                    <div class="absolute inset-0 z-20 bg-indigo-900 bg-opacity-0 group-hover:bg-opacity-60 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                        <a 
+                            href="https://canva.link/majalahskpkmiri2023" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            class="transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 bg-white text-indigo-700 hover:bg-indigo-50 px-6 py-3 rounded-full font-bold shadow-xl flex items-center gap-2"
+                        >
+                            <i class="fa-solid fa-book-open text-xl"></i> Buka E-Majalah
+                        </a>
+                    </div>
+                </div>
+                <div class="p-6 flex-grow flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm font-bold text-indigo-600 uppercase tracking-wider">Edisi 2023</span>
+                            <span class="text-xs text-slate-400 flex items-center gap-1">
+                               <i class="fa-solid fa-users"></i> 2023
+                            </span>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-800 leading-tight mb-2 group-hover:text-indigo-600 transition-colors">
+                            Lantera Edisi Ke-1
+                        </h4>
+                        <p class="text-sm text-slate-500 line-clamp-2">
+                            Koleksi kenangan, aktiviti kurikulum, kokurikulum dan pencapaian warga SKPK Miri sepanjang tahun 2023.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-100">
+                        <a 
+                            href="https://canva.link/majalahskpkmiri2023" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            class="w-full flex items-center justify-center gap-2 bg-indigo-50 hover:bg-indigo-600 text-indigo-700 hover:text-white py-3 px-4 rounded-xl font-semibold transition-colors duration-300"
+                        >
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Baca di Canva
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer id="tentang" class="bg-slate-900 text-slate-300 py-12 border-t border-slate-800">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            <div class="flex items-center justify-center md:justify-start gap-3 mb-4 md:mb-0">
+                <img src="logo.png" alt="Logo SKPK Miri" class="w-10 h-10 object-contain bg-white rounded-full p-0.5" onerror="this.onerror=null; this.src='https://via.placeholder.com/150?text=SKPK';" />
+                <div>
+                    <p class="font-bold text-white text-lg">SK Pendidikan Khas Miri</p>
+                    <p class="text-sm text-slate-400">Agar Dapat Turut Berbakti</p>
+                </div>
+            </div>
+            
+            <div class="text-sm">
+                <p>&copy; <span id="currentYear"></span> Hak Cipta Terpelihara.</p>
+                <p class="mt-1">Disediakan oleh <span class="text-white font-semibold">Sidang Redaksi SKPK Miri</span>.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Skrip JavaScript -->
+    <script>
+        // Set tahun semasa pada footer automatik
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Fungsi untuk tutup popup
+        function closePopup() {
+            const popup = document.getElementById('announcementPopup');
+            popup.classList.add('opacity-0');
+            setTimeout(() => {
+                popup.style.display = 'none';
+            }, 300);
+        }
+
+        // Fungsi sementara untuk butang eBuletin
+        function alertBuletin(e) {
+            e.preventDefault();
+            alert('Pautan eBuletin akan dikemaskini kelak oleh admin!');
+        }
+    </script>
+</body>
+</html>
